@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function twoSum(arr, target) {
+            let res = [];
+            arr.forEach((ele, index) => {
+                arr.forEach((item, index2) => {
+                    if (ele + item === target && index2 != index) {
+                        res[0] = index2;
+                        res[1] = index;
+                        return;
+                    }
+                })
+            })
+
+            return res;
+        }
+
+        function twoSum2(arr, target) {
+            for (let i = 0; i < arr.length; i++) {
+                let s = target - arr[i];
+
+                let q = arr.indexOf(s);
+
+                if (q != -1 && q != i) {
+                    return [i, q]
+                }
+            }
+        }
+
+        console.log(twoSum2([3, 2, 4], 6))
+    </script>
+</body>
+
+</html>

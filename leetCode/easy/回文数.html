@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function isPalindrome(x) {
+            let str = `${x}`
+
+            let arr = str.split('');
+            let index = 0;
+
+            if (str.length == 2) {
+                return arr[0] == arr[1];
+            }
+
+            if (str.length % 2 == 0) {
+                index = arr.length / 2;
+            } else {
+                index = Math.floor(arr.length / 2);
+            }
+
+            let left = JSON.stringify(arr.slice(0, index));
+            let right = JSON.stringify(arr.slice(index + ((str.length % 2 == 0) ? 0 : 1), arr.length).reverse());
+
+            if (left === right) {
+                return true
+            } else {
+                return false
+            }
+
+        }
+
+        console.log(isPalindrome(100001))
+    </script>
+</body>
+
+</html>
