@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function removeElement(nums, val) {
+            const len = nums.length
+
+            let fast = 0,
+                slow = 0
+            while (fast < len) {
+                if (val !== nums[fast]) {
+                    nums[slow] = nums[fast]
+                    slow++
+                }
+                fast++
+            }
+            return slow
+        }
+
+        let arr = [3, 2, 2, 3]
+        console.log(removeElement(arr, 3), arr);
+    </script>
+</body>
+
+</html>

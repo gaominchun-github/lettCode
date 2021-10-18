@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function longestCommonPrefix(strs) {
+            if (strs.length === 1) {
+                return strs[0]
+            }
+            let res = ''
+            let base = strs[0]
+            let tag = false
+
+            for (let i = 0; i < strs.length; i++) {
+                if (tag) {
+                    break
+                }
+                if (strs[i].length < base.length) {
+                    base = strs[i]
+                }
+                for (let j = i + 1; j < strs.length; j++) {
+                    let str = ''
+                    let a = strs[i].split('')
+                    let b = strs[j].split('')
+                    let min = a.length < b.length ? a : b
+
+                    for (let k = 0; k < min.length; k++) {
+                        if (a[k] === b[k]) {
+                            str += a[k]
+                        } else {
+                            break
+                        }
+                    }
+
+
+                    if (base.substring(0, str.length) === str && strs[0].substring(0, str.length) === str) {
+                        res = str
+                    }
+                    break
+                }
+            }
+
+            return res
+        }
+
+        console.log(longestCommonPrefix(
+            ["a", "aca", "accb", "b"]
+        ))
+    </script>
+</body>
+
+</html>

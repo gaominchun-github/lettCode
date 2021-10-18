@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function searchInsert(nums, target) {
+            let left = 0
+            let right = nums.length - 1
+            let res = nums.length - 1
+
+            while (left <= right) {
+                let mid = Math.floor((left + right) / 2)
+
+                if (target == nums[mid]) {
+                    return mid
+                }
+                if (target > nums[mid]) {
+                    left = mid + 1
+                    res = mid + 1
+                } else {
+                    right = mid - 1
+                    res = mid
+                }
+            }
+
+            return res
+        }
+
+        console.log(searchInsert([1], 0));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function isValid(s) {
+            const n = s.length
+            if (n % 2 === 1) {
+                return false
+            }
+
+            const pairs = new Map([
+                [')', '('],
+                [']', '['],
+                ['}', '{']
+            ])
+
+            const stk = []
+
+            for (let ch of s) {
+                if (pairs.has(ch)) {
+                    console.log(ch, 'ch')
+                    if (!stk.length || stk[stk.length - 1] !== pairs.get(ch)) {
+                        return false
+                    }
+
+                    stk.pop()
+                } else {
+                    stk.push(ch)
+                }
+            }
+
+            return !stk.length
+        }
+
+        console.log(isValid('()'))
+
+        const pairs = new Map([
+            [')', '('],
+            [']', '['],
+            ['}', '{']
+        ])
+
+        console.log(pairs.has(')'), pairs.get(')'));
+    </script>
+</body>
+
+</html>
